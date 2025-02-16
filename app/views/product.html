@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ product.name }}</h2>
+    <div class="product-details">
+        <p><strong>Description:</strong> {{ product.description }}</p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+    </div>
+
+    <div class="product-actions mt-3">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Products</a>
+        <form action="{{ url_for('add_to_cart_route', product_id=product.id) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
